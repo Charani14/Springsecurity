@@ -24,16 +24,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Spring Security Configuration.
- *
- * Key configurations:
- * - Stateless session management (for REST API)
- * - JWT authentication filter
- * - Endpoint authorization rules
- * - Password encoding
- * - CORS configuration
- */
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity // Enables @PreAuthorize, @PostAuthorize, @Secured
@@ -113,28 +104,19 @@ public class SecurityConfig {
         return authProvider;
     }
 
-    /**
-     * Password encoder using BCrypt.
-     * BCrypt automatically handles salting and is designed to be slow
-     * to resist brute-force attacks.
-     */
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    /**
-     * Authentication manager for programmatic authentication.
-     */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
             throws Exception {
         return config.getAuthenticationManager();
     }
 
-    /**
-     * CORS configuration for cross-origin requests.
-     */
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

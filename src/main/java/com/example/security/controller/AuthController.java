@@ -16,12 +16,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Authentication Controller.
- *
- * Handles user registration, login, and token refresh.
- * All endpoints are public (no authentication required).
- */
+
 @RestController
 @RequestMapping("/api/auth")
 @Tag(name = "Authentication", description = "User authentication and registration")

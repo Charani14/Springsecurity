@@ -16,11 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-/**
- * Service for user operations.
- *
- * Also implements UserDetailsService for Spring Security integration.
- */
+
 @Service
 @Transactional
 public class UserService implements UserDetailsService {
@@ -33,9 +29,6 @@ public class UserService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
-    /**
-     * Load user by username (email) for Spring Security.
-     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByEmail(username)
@@ -43,9 +36,7 @@ public class UserService implements UserDetailsService {
                         "User not found with email: " + username));
     }
 
-    /**
-     * Get all users.
-     */
+
     public List<UserResponse> getAllUsers() {
         logger.debug("Fetching all users");
         return userRepository.findAll().stream()
@@ -53,27 +44,21 @@ public class UserService implements UserDetailsService {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Get user by ID.
-     */
+
     public Optional<UserResponse> getUserById(Long id) {
         logger.debug("Fetching user with id: {}", id);
         return userRepository.findById(id)
                 .map(UserResponse::fromEntity);
     }
 
-    /**
-     * Get user by email.
-     */
+
     public Optional<UserResponse> getUserByEmail(String email) {
         logger.debug("Fetching user with email: {}", email);
         return userRepository.findByEmail(email)
                 .map(UserResponse::fromEntity);
     }
 
-    /**
-     * Promote user to admin role.
-     */
+
     public Optional<UserResponse> promoteToAdmin(Long id) {
         logger.info("Promoting user {} to ADMIN", id);
         return userRepository.findById(id)
@@ -85,9 +70,7 @@ public class UserService implements UserDetailsService {
                 });
     }
 
-    /**
-     * Delete user by ID.
-     */
+
     public boolean deleteUser(Long id) {
         logger.info("Deleting user with id: {}", id);
         if (userRepository.existsById(id)) {

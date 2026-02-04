@@ -12,12 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Admin Controller.
- *
- * All endpoints require ADMIN role.
- * Configured via URL pattern in SecurityConfig: /api/admin/** -> ADMIN role
- */
+
 @RestController
 @RequestMapping("/api/admin")
 @Tag(name = "Admin", description = "Administrative operations (ADMIN role required)")
