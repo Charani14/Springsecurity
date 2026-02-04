@@ -10,12 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-/**
- * Public Controller.
- *
- * Endpoints that don't require authentication.
- * Useful for health checks, status, and public information.
- */
+
 @RestController
 @RequestMapping("/api/public")
 @Tag(name = "Public", description = "Public endpoints (no authentication required)")

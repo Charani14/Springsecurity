@@ -11,14 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-/**
- * Service for authentication operations.
- *
- * Handles:
- * - User registration (with password encoding)
- * - User authentication (login)
- * - Token refresh
- */
+
 @Service
 public class AuthService {
 

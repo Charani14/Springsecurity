@@ -10,11 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/**
- * Data Initializer.
- *
- * Creates default admin user on application startup for testing.
- */
+
 @Configuration
 public class DataInitializer {
 

@@ -17,12 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * User Controller.
- *
- * Demonstrates method-level security using @PreAuthorize.
- * All endpoints require authentication.
- */
+
 @RestController
 @RequestMapping("/api/users")
 @Tag(name = "Users", description = "User management operations")
